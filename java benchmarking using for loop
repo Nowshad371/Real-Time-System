@@ -1,0 +1,61 @@
+//NOTE : BEFORE WORKING WITH THIS CODE, FIRST SET UP THE JAVA MAVEN ENVIRONMENT AND SET UP JHM IN POM.XML FILE UNDER PROJECT FILES
+
+//CREATE A MAIN CLASS AND COPY THIS CODE AND PASTE IT
+
+package exe;
+
+import java.io.IOException;
+import org.openjdk.jmh.*;
+
+public class Main {
+	
+		public static void main(String[] args) throws IOException {
+			
+			org.openjdk.jmh.Main.main(args);
+	
+		}
+}
+
+
+
+
+
+
+
+
+
+
+
+//CREATE A CLASS AND NAME IT AS TEST ONE AND COPY THE BELOW CODE AND PASTE IT THERE
+
+package exe;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
+
+import org.openjdk.jmh.annotations.*;
+public class Test{
+
+	
+
+
+	@Benchmark
+	@BenchmarkMode(Mode.AverageTime)
+	@Measurement(iterations = 2)
+	@OutputTimeUnit(TimeUnit.MILLISECONDS)
+	@Fork(value = 1)
+	@Warmup(iterations = 1)
+	
+	public void Test1() {
+		int count = 1;
+		
+		
+		for(int i=0;i<10000;i++) {
+			count += i;
+                        
+		}
+	
+	}
+	
+    
+}
+
